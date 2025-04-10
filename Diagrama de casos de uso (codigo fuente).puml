@@ -1,0 +1,64 @@
+@startuml
+title Proyecto RoomEasy
+
+skinparam backgroundColor white
+skinparam usecase {
+    BackgroundColor white
+    BorderColor black
+    ArrowColor black
+}
+
+actor "USUARIO" as User
+actor "ADMINISTRADOR" as Admin
+actor "ENCARGADO DE SISTEMA" as Dev
+
+actor "SISTEMA DE PAGO" as Pago
+
+rectangle {
+    usecase "CREAR UNA CUENTA" as US1 #99FFCC
+    usecase "LOGIN DE CLIENTE" as US2 #99FFCC
+    usecase "RESERVAR HABITACIÓN" as US3 #99FFCC
+    usecase "CALCULAR COSTOS" as US4 #99FFCC
+    usecase "CONSULTAR DISPONIBILIDAD" as US5 #99FFCC
+    usecase "CAMBIAR IDIOMA" as US6 #99FFCC
+    usecase "PAGAR EN LÍNEA" as US7 #99FFCC
+}
+
+rectangle {
+    usecase "AÑADIR NUEVOS USUARIOS" as AD1 #FFCCE5
+    usecase "ELIMINAR USUARIO" as AD2 #FFCCE5
+    usecase "ACTUALIZAR USUARIO" as AD3 #FFCCE5
+    usecase "ACTUALIZAR VALORES" as AD4 #FFCCE5
+    usecase "COMPROBAR TRANSACCIONES" as AD5 #FFCCE5
+}
+
+rectangle {
+    usecase "PROGRAMAR SITIO WEB" as DEV1 #FFE066
+    usecase "MODIFICAR SITIO WEB" as DEV2 #FFE066
+    usecase "PROGRAMAR Y MODIFICAR BD" as DEV3 #FFE066
+}
+
+User --> US1
+User --> US2
+User --> US3
+User --> US5
+User --> US6
+User --> US7
+
+US3 --> US4 : <<include>>
+US5 --> US4 : <<include>>
+
+Admin --> AD1
+Admin --> AD2
+Admin --> AD3
+Admin --> AD4
+Admin --> AD5
+
+Dev --> DEV1
+Dev --> DEV2
+Dev --> DEV3
+
+US7 --> Pago
+AD5 --> Pago
+
+@enduml
