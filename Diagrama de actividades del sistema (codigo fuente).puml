@@ -1,0 +1,25 @@
+@startuml
+title Proceso de Reserva (Sistema)
+
+start
+
+:Usuario ingresa datos en\nformulario de reserva;
+note right: UI
+
+:VALIDAR DATOS\nINGRESADOS;
+
+if ("¿DATOS\nVALIDADOS?") then (SI)
+  :CONECTAR CON BD;
+  note right: DAO
+
+  :INSERTAR DATOS EN\nTABLA RESERVAS;
+  :ACTUALIZAR DISPONIBILIDAD\nDE HABITACIÓN;
+  :CONFIRMAR RESERVA AL USUARIO;
+  note right: UI
+else (NO)
+  :MOSTRAR MENSAJE\nDE ERROR;
+  :INSERTAR DATOS NO\nDISPONIBLES;
+endif
+
+stop
+@enduml
