@@ -1,0 +1,70 @@
+# === BACKEND (FastAPI / Python) ===
+
+# Entorno virtual
+venv/
+.env
+*.env
+*.env.*
+
+# Cache y archivos compilados de Python
+__pycache__/
+*.py[cod]
+*.so
+*.log
+
+# Archivos de configuración del entorno
+*.sqlite3
+*.db
+
+# Archivos de pruebas
+.coverage
+htmlcov/
+.tox/
+.cache/
+pytest_cache/
+nosetests.xml
+coverage.xml
+
+# === FRONTEND (Angular) ===
+
+# Compiled output
+/frontend/dist
+/frontend/tmp
+/frontend/out-tsc
+/frontend/bazel-out
+
+# Node modules
+/frontend/node_modules
+npm-debug.log
+yarn-error.log
+pnpm-debug.log
+
+# IDEs and editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Angular cache
+/frontend/.angular/cache
+
+# Sass cache
+/frontend/.sass-cache
+
+# Testing / coverage
+/frontend/coverage/
+frontend/testem.log
+
+# System files
+.DS_Store
+Thumbs.db
