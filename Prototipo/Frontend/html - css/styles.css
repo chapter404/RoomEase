@@ -1,0 +1,95 @@
+:root {
+  --primario: #2A4365;
+  --secundario: #4FD1C5;
+  --gris-fondo: #F2F2F2;
+  --blanco: #FFFFFF;
+  --gris-input: #E0E0E0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background: var(--gris-fondo);
+  padding: 40px;
+}
+
+section {
+  background: var(--blanco);
+  padding: 25px;
+  margin-bottom: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+section:hover {
+  transform: translateY(-2px);
+}
+
+h2 {
+  margin-top: 0;
+  color: var(--primario);
+  font-size: 1.8em;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 12px;
+  font-weight: bold;
+  color: var(--primario);
+}
+
+input, select, button {
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+}
+
+input, select {
+  background-color: var(--gris-input);
+}
+
+input:focus, select:focus {
+  border-color: var(--secundario);
+  outline: none;
+  background-color: #f9fafa;
+}
+
+button {
+  margin-top: 20px;
+  background-color: var(--secundario);
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #38B2AC;
+  transform: scale(1.02);
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul li {
+  margin-bottom: 12px;
+}
+
+a {
+  color: var(--primario);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
