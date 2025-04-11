@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e2e1e1;
+    margin: 0;
+    padding: 0;
+}
+
+.contenedor-tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.tarjeta-habitacion {
+    border: 2px solid #94c2ec;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 70%;
+    max-height: 80%;
+    background: white;
+}
+
+.info-habitacion {
+    height: 50%;
+    max-height: 50%;
+    text-align: center;
+}
+
+.imagen-habitacion {
+    height: 50%;
+
+}
+
+.imagen-habitacion img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+.boton-reserva {
+    width: 90%;
+    align-self: center;
+}
