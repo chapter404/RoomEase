@@ -9,14 +9,28 @@
 </nav>
 <section class="registro">
   <h2>Registro de Usuario</h2>
-  <form>
+  <form (ngSubmit)="onSubmit()">
     <label for="nombre">Nombre completo:</label>
-    <input type="text" id="nombre" name="nombre">
+    <input type="text" id="nombre" name="nombre" [(ngModel)]="nombre" required />
+  
+    <label for="rut">RUT:</label>
+    <input type="text" id="rut" name="rut" [(ngModel)]="rut" required />
+  
+    <label for="dv">Dígito Verificador:</label>
+    <input type="text" id="dv" name="dv" [(ngModel)]="dv" required />
+  
+    <label for="telefono">Teléfono:</label>
+    <input type="text" id="telefono" name="telefono" [(ngModel)]="telefono" required />
+  
     <label for="correo">Correo:</label>
-    <input type="email" id="correo" name="correo">
+    <input type="email" id="correo" name="correo" [(ngModel)]="correo" required />
+  
     <label for="clave">Contraseña:</label>
-    <input type="password" id="clave" name="clave">
+    <input type="password" id="clave" name="clave" [(ngModel)]="password" required />
+  
     <button type="submit">Registrarse</button>
   </form>
+  
+  <p *ngIf="mensaje">{{ mensaje }}</p>
   <p><a routerLink="/login">¿Ya tienes cuenta? Inicia sesión</a></p>
 </section>
