@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Habitaciones</title>
+  <title>Reservas</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -18,27 +18,26 @@
   </header>
 
   <main>
-    <h1>Habitaciones Disponibles</h1>
-    <div class="contenedor-habitaciones">
-      <div class="tarjeta-habitacion">
-        <img src="images/habitacion_1.webp" alt="Habitación Individual" />
-        <h3>Habitación Individual</h3>
-        <p>Costo: $30.000</p>
-        <p>Estado: Disponible</p>
-      </div>
-      <div class="tarjeta-habitacion">
-        <img src="images/habitacion_2.jpg" alt="Habitación Doble" />
-        <h3>Habitación Doble</h3>
-        <p>Costo: $45.000</p>
-        <p>Estado: Disponible</p>
-      </div>
-      <div class="tarjeta-habitacion">
-        <img src="images/habitacion_3.webp" alt="Suite" />
-        <h3>Suite</h3>
-        <p>Costo: $60.000</p>
-        <p>Estado: Ocupada</p>
-      </div>
-    </div>
+    <h1>Reservar Habitación</h1>
+    <form>
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" />
+
+      <label for="correo">Correo:</label>
+      <input type="email" id="correo" />
+
+      <label for="fecha">Fecha:</label>
+      <input type="date" id="fecha" />
+
+      <label for="habitacion">Habitación:</label>
+      <select id="habitacion">
+        <option value="individual">Individual</option>
+        <option value="doble">Doble</option>
+        <option value="suite">Suite</option>
+      </select>
+
+      <button type="submit">Reservar</button>
+    </form>
   </main>
 </body>
 </html>

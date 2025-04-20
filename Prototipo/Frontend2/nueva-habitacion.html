@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Habitaciones</title>
+  <title>Nueva Habitación</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -18,27 +18,22 @@
   </header>
 
   <main>
-    <h1>Habitaciones Disponibles</h1>
-    <div class="contenedor-habitaciones">
-      <div class="tarjeta-habitacion">
-        <img src="images/habitacion_1.webp" alt="Habitación Individual" />
-        <h3>Habitación Individual</h3>
-        <p>Costo: $30.000</p>
-        <p>Estado: Disponible</p>
-      </div>
-      <div class="tarjeta-habitacion">
-        <img src="images/habitacion_2.jpg" alt="Habitación Doble" />
-        <h3>Habitación Doble</h3>
-        <p>Costo: $45.000</p>
-        <p>Estado: Disponible</p>
-      </div>
-      <div class="tarjeta-habitacion">
-        <img src="images/habitacion_3.webp" alt="Suite" />
-        <h3>Suite</h3>
-        <p>Costo: $60.000</p>
-        <p>Estado: Ocupada</p>
-      </div>
-    </div>
+    <h1>Agregar Nueva Habitación</h1>
+    <form>
+      <label for="tipo">Tipo:</label>
+      <input type="text" id="tipo" />
+
+      <label for="costo">Costo:</label>
+      <input type="number" id="costo" />
+
+      <label for="estado">Estado:</label>
+      <select id="estado">
+        <option value="disponible">Disponible</option>
+        <option value="ocupada">Ocupada</option>
+      </select>
+
+      <button type="submit">Guardar Habitación</button>
+    </form>
   </main>
 </body>
 </html>

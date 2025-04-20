@@ -2,9 +2,10 @@
     --primario: #2A4365;
     --secundario: #4FD1C5;
     --gris-fondo: #F2F2F2;
+    --blanco: #FFFFFF;
     --gris-input: #E0E0E0;
 }
-  
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -12,8 +13,41 @@ body {
     padding: 40px;
 }
 
+header nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    flex-wrap: wrap;
+}
+
+header nav a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    width: 80px;
+}
+
+header nav img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    margin-bottom: 5px;
+    transition: transform 0.2s ease;
+}
+
+header nav img:hover {
+    transform: scale(1.1);
+}
+
 section {
-    background: white;
+    background: var(--blanco);
     padding: 25px;
     margin-bottom: 40px;
     border-radius: 12px;
@@ -29,6 +63,7 @@ h2 {
     margin-top: 0;
     color: var(--primario);
     font-size: 1.8em;
+    text-align: center;
 }
 
 form {
@@ -91,21 +126,4 @@ a {
 
 a:hover {
     text-decoration: underline;
-}
-
-nav {
-    background-color: #2A4365;
-    padding: 1rem;
-}
-
-nav ul {
-    display: flex;
-    gap: 1.5rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-nav a {
-    color: white;
 }
