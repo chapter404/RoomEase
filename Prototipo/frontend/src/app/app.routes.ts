@@ -6,6 +6,7 @@ import { HabitacionDetalleComponent } from './habitacion-detalle/habitacion-deta
 import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 import { ReservasComponent } from './reservas/reservas.component';
+import { HabitacionesComponent } from './habitaciones/habitaciones.component';
 
 
 export const routes: Routes = [
@@ -16,5 +17,6 @@ export const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'registro', component: RegistroComponent },
     { path: 'reservas', component: ReservasComponent },
+    { path: 'habitaciones', component: HabitacionesComponent },
 
 ];
