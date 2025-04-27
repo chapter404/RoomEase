@@ -10,6 +10,7 @@ import { HabitacionesComponent } from './habitaciones/habitaciones.component';
 
 
 export const routes: Routes = [
+    { path: '', redirectTo: '/habitaciones', pathMatch: 'full' },
     { path: 'admin', component: AdminComponent },
     { path: 'admin/gestionar-habitaciones', component: GestionarHabitacionesComponent },
     { path: 'admin/crear-habitacion', component: CrearHabitacionComponent },
