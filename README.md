@@ -35,13 +35,19 @@
      uvicorn main:app --reload --host 127.0.0.1 --port 8000
      ```
 
-6. **Ejecutar el servidor frontend local**:
-   - En la carpeta `src` del frontend, ejecuta:
+7. **Ejecutar el servidor frontend local**:
+   - En la carpeta frontend, ejecuta:
      ```bash
      ng serve
      ```
 
-7. **Abrir la página web en el navegador**:
+8. **Instalar Angular en el frontend (solo la primera vez)**:
+   - En la carpeta frontend, ejecuta:
+     ```bash
+     ng serve
+     ```
+
+9. **Abrir la página web en el navegador**:
    - Dirígete a la siguiente URL en tu navegador:
      ```
      http://localhost:4200/login
