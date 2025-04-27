@@ -10,24 +10,27 @@
 
 <main>
     <h1>Habitaciones Disponibles</h1>
-    <div class="contenedor-habitaciones">
-        <div class="tarjeta-habitacion">
-            <img src="images/habitacion_1.webp" alt="Habitación Individual"/>
-            <h3>Habitación Individual</h3>
-            <p>Costo: $30.000</p>
-            <p>Estado: Disponible</p>
-        </div>
-        <div class="tarjeta-habitacion">
-            <img src="images/habitacion_2.jpg" alt="Habitación Doble"/>
-            <h3>Habitación Doble</h3>
-            <p>Costo: $45.000</p>
-            <p>Estado: Disponible</p>
-        </div>
-        <div class="tarjeta-habitacion">
-            <img src="images/habitacion_3.webp" alt="Suite"/>
-            <h3>Suite</h3>
-            <p>Costo: $60.000</p>
-            <p>Estado: Ocupada</p>
-        </div>
+
+<div class="contenedor-habitaciones">
+    <div *ngIf="habitaciones.length === 0">
+<p>No hay habitaciones disponibles en este momento.</p>
     </div>
+
+    <div class="tarjeta-habitacion" *ngFor="let habitacion of habitaciones">
+<img 
+        *ngIf="habitacion.fotos.length > 0" 
+        [src]="habitacion.fotos[0]" 
+        alt="{{ habitacion.tipo }}" 
+        style="width: 100%; height: auto; object-fit: cover; border-radius: 8px;"
+/>
+
+    <h3>{{ habitacion.tipo }}</h3>
+    <p><strong>Número:</strong> {{ habitacion.numero }}</p>
+    <p><strong>Precio:</strong> ${{ habitacion.precio | number }}</p>
+    <p><strong>Estado:</strong> {{ habitacion.estado }}</p>
+    <p *ngIf="habitacion.descripcion">
+    <strong>Descripción:</strong> {{ habitacion.descripcion }}
+    </p>
+</div>
+</div>
 </main>

@@ -54,3 +54,21 @@ async def crear_habitacion(
     db.commit()
     logging.info(f"Habitación creada con éxito: ID {nueva_habitacion.idHabitacion}")
     return {"message": "Habitación creada con éxito", "idHabitacion": nueva_habitacion.idHabitacion}
+
+@router.get("/")
+def listar_habitaciones(db: Session = Depends(get_db)):
+    habitaciones = db.query(Habitacion).all()
+    resultado = []
+    for habitacion in habitaciones:
+        fotos = db.query(FotoHabitacion).filter(FotoHabitacion.habitacionId == habitacion.idHabitacion).all()
+        fotos_urls = [f"http://localhost:8000/{foto.urlFoto}" for foto in fotos]
+        resultado.append({
+            "idHabitacion": habitacion.idHabitacion,
+            "numero": habitacion.numero,
+            "tipo": habitacion.tipo,
+            "precio": habitacion.precio,
+            "estado": habitacion.estado,
+            "descripcion": habitacion.descripcion,
+            "fotos": fotos_urls
+        })
+    return resultado
