@@ -38,19 +38,18 @@ def seed_database():
         with conexion.cursor() as cursor:
             cursor.execute("SELECT COUNT(*) AS cnt FROM Cliente")
             if cursor.fetchone()["cnt"] == 0:
-                cursor.execute("""
-                    INSERT INTO Cliente (nombre, rut, dv, telefono, correo, password)
-                    VALUES ('Cliente Prueba',12345678,'K',987654321,'prueba@example.com','pass123')
-                """)
+                cursor.execute(
+                    "INSERT INTO Cliente (nombre, rut, dv, telefono, correo, password) "
+                    "VALUES ('Cliente Prueba',12345678,'K',987654321,'prueba@example.com','pass123')"
+                )
             cursor.execute("SELECT COUNT(*) AS cnt FROM Habitacion")
             if cursor.fetchone()["cnt"] == 0:
-                cursor.execute("""
-                    INSERT INTO Habitacion (numero, tipo, precio, estado, descripcion)
-                    VALUES
-                      ('101','Individual',30000,'disponible','Cama sencilla'),
-                      ('102','Doble',     45000,'disponible','Dos camas'),
-                      ('103','Suite',     60000,'disponible','Cama king size y sala')
-                """)
+                cursor.execute(
+                    "INSERT INTO Habitacion (numero, tipo, precio, estado, descripcion) VALUES "
+                    "('101','Individual',30000,'disponible','Cama sencilla'),"
+                    "('102','Doble',45000,'disponible','Dos camas'),"
+                    "('103','Suite',60000,'disponible','Cama king size y sala')"
+                )
             conexion.commit()
 
 @app.get("/")
