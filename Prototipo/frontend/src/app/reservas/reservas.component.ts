@@ -1,61 +1,46 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+// 🔥 Importar RouterLink para que routerLink funcione
+import { RouterLink } from '@angular/router';
 import { ReservasService } from './reservas.service';
 
 @Component({
   selector: 'app-reservas',
   standalone: true,
-  imports: [CommonModule],
+  // 🔥 Aquí agregas RouterLink junto a CommonModule
+  imports: [CommonModule, RouterLink],
   templateUrl: './reservas.component.html',
   styleUrls: ['./reservas.component.css']
 })
-export class ReservasComponent implements AfterViewInit {
+export class ReservasComponent {
   constructor(private reservasService: ReservasService) {}
 
-  ngAfterViewInit(): void {
-    const form = document.querySelector('form');
-    form?.addEventListener('submit', event => {
-      event.preventDefault();
-      this.reservar();
-    });
-  }
+  reservar(event: Event): void {
+    event.preventDefault();
 
-  reservar(): void {
-    const nombreInput = document.getElementById('nombre') as HTMLInputElement;
-    const correoInput = document.getElementById('correo') as HTMLInputElement;
-    const fechaInput = document.getElementById('fecha') as HTMLInputElement;
-    const habitacionSelect = document.getElementById('habitacion') as HTMLSelectElement;
+    const nombreInput    = document.getElementById('nombre')     as HTMLInputElement;
+    const correoInput    = document.getElementById('correo')     as HTMLInputElement;
+    const fechaInput     = document.getElementById('fecha')      as HTMLInputElement;
+    const habitacionSel  = document.getElementById('habitacion') as HTMLSelectElement;
 
-    const nombre = nombreInput?.value;
-    const correo = correoInput?.value;
-    const fecha = fechaInput?.value;
-    const habitacionValue = habitacionSelect?.value;
+    const fecha          = fechaInput.value;
+    const habitacionValue= habitacionSel.value;
 
-    // Mapeo de valores de habitación a IDs
-    const mapping: Record<string, number> = {
-      individual: 1,
-      doble: 2,
-      suite: 3
+    const mapping: Record<string,number> = {
+      individual: 1, doble: 2, suite: 3
     };
     const habitacionId = mapping[habitacionValue] || 1;
 
     const datosReserva = {
-      nombre,
-      correo,
       fechaInicio: fecha,
-      fechaFin: fecha,
+      fechaFin:    fecha,
       habitacionId,
-      clienteId: 1 // temporal
+      clienteId:   1
     };
 
     this.reservasService.crearReserva(datosReserva).subscribe({
-      next: res => {
-        alert('Reserva creada con ID ' + res.reservaId);
-      },
-      error: err => {
-        console.error(err);
-        alert('Error al crear reserva');
-      }
+      next: res  => alert('Reserva creada con ID ' + res.reservaId),
+      error: err => { console.error(err); alert('Error al crear reserva'); }
     });
   }
 }

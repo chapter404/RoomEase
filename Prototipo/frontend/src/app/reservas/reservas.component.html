@@ -10,7 +10,7 @@
 
 <main>
   <h1>Reservar Habitación</h1>
-  <form>
+  <form (submit)="reservar($event)">
     <label for="nombre">Nombre:</label>
     <input type="text" id="nombre" />
 
@@ -30,4 +30,3 @@
     <button type="submit">Reservar</button>
   </form>
 </main>
-
