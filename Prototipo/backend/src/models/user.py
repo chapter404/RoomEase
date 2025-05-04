@@ -1,7 +1,8 @@
 from sqlalchemy import Column, Integer, String, UniqueConstraint
+from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
+from database.connection import Base
 
-Base = declarative_base()
 
 class Cliente(Base):
     __tablename__ = "Cliente"
@@ -14,4 +15,5 @@ class Cliente(Base):
     correo = Column(String(100), unique=True, nullable=False)
     password = Column(String(255), nullable=False)
 
+    reservas = relationship("Reserva", back_populates="cliente", cascade="all, delete-orphan")
     __table_args__ = (UniqueConstraint('rut', 'dv', name='uq_rut_dv'),)

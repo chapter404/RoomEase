@@ -14,11 +14,11 @@
      ```
 
 3. **Activar el entorno virtual**:
-   - En sistemas Windows, usa:
+   - Ejecuta el siguiente comando para activar el entorno virtual:
      ```bash
      .\venv\Scripts\activate
      ```
-   - Para desactivar el entorno virtual, ejecuta:
+   - En caso de querer desactivar el entorno virtual, puedes ejecutar:
      ```bash
      deactivate
      ```
@@ -35,19 +35,15 @@
      uvicorn main:app --reload --host 127.0.0.1 --port 8000
      ```
 
-7. **Ejecutar el servidor frontend local**:
+6. **Ejecutar el servidor frontend local**:
    - En la carpeta frontend, ejecuta:
      ```bash
+     * Si Angular no está instalado, ejecuta **npm install -g @angular/cli**
+     * Luego, si es la primera vez que ejecutas el proyecto, utiliza **npm install** 
      ng serve
      ```
 
-8. **Instalar Angular en el frontend (solo la primera vez)**:
-   - En la carpeta frontend, ejecuta:
-     ```bash
-     ng serve
-     ```
-
-9. **Abrir la página web en el navegador**:
+7. **Abrir la página web en el navegador**:
    - Dirígete a la siguiente URL en tu navegador:
      ```
      http://localhost:4200/login

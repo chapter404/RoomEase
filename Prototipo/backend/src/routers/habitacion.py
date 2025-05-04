@@ -55,7 +55,7 @@ async def crear_habitacion(
     logging.info(f"Habitación creada con éxito: ID {nueva_habitacion.idHabitacion}")
     return {"message": "Habitación creada con éxito", "idHabitacion": nueva_habitacion.idHabitacion}
 
-@router.get("/")
+@router.get("")
 def listar_habitaciones(db: Session = Depends(get_db)):
     habitaciones = db.query(Habitacion).all()
     resultado = []

@@ -3,7 +3,8 @@ import { RouterLink } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { FormsModule } from '@angular/forms';
 import { NgIf } from '@angular/common';
-
+import { Router } from '@angular/router';
+import { MensajeService } from '../services/mensaje.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,11 @@ export class LoginComponent {
   password: string = '';
   mensaje: string = '';
 
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private mensajeService: MensajeService
+  ) {}
 
   onSubmit() {
     const credentials = {
@@ -28,6 +33,10 @@ export class LoginComponent {
       next: (response) => {
         this.mensaje = 'Inicio de sesión exitoso';
         console.log(response);
+
+        this.mensajeService.setMensaje('Sesión iniciada');
+
+        this.router.navigate(['habitaciones']);
       },
       error: (error) => {
         this.mensaje = 'Error al iniciar sesión';
