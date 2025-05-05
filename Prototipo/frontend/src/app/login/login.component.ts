@@ -33,6 +33,7 @@ export class LoginComponent {
       next: (response) => {
         this.mensaje = 'Inicio de sesión exitoso';
         console.log(response);
+        localStorage.setItem('idUsuario', response.user.id);
 
         this.mensajeService.setMensaje('Sesión iniciada');
 

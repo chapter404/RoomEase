@@ -37,3 +37,14 @@ def crear_reserva(reserva: ReservaRequest, db: Session = Depends(get_db)):
     except Exception as e:
         db.rollback()
         raise HTTPException(status_code=500, detail=f"Error al crear reserva: {e}")
+    
+@router.get("/cliente/{cliente_id}", summary="Obtener reservas de un cliente")
+def obtener_reservas(cliente_id: int, db: Session = Depends(get_db)):
+    try:
+        reservas = db.query(Reserva).filter(Reserva.clienteId == cliente_id).all()
+        if not reservas:
+            return []
+
+        return reservas
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error al obtener reservas: {e}")
